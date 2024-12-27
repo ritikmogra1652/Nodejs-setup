@@ -1,0 +1,55 @@
+{
+  "name": "node-js-setup",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "set NODE_ENV=local&& nodemon src/App.ts",
+    "dev": "set NODE_ENV=development&& nodemon src/App.ts",
+    "staging": "set NODE_ENV=staging&& nodemon src/App.ts",
+    "tsc": "tsc",
+    "prepare": "husky && husky install",
+    "format": "prettier --write .",
+    "prettier-check": "prettier --check .",
+    "prettier-fix": "prettier --write .",
+    "lint": "eslint src/**/*.{ts,d.ts}",
+    "lint-fix": "eslint --fix src/**/*.{ts,d.ts,.tsx}"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "@types/cookie-parser": "^1.4.8",
+    "@types/cors": "^2.8.17",
+    "eslint": "^9.17.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-react": "^7.37.3",
+    "globals": "^15.14.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^15.2.11",
+    "nodemon": "^3.1.9",
+    "prettier": "^3.4.2",
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.18.2"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.1692.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.ts": "eslint --cache",
+    "src/**/*.{ts,json,yml}": "prettier --write --ignore-unknown"
+  }
+}

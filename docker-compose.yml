@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: postgres_container
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgresAdmin
+      POSTGRES_PASSWORD: postgresPassword
+    ports:
+      - '5432:5432'
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  # redis:
+  #   image: redis:latest
+  #   container_name: redis_container
+  #   ports:
+  #     - "6379:6379"
+  #   environment:
+  #     - REDIS_DATABASE=all-chalk-cache
+
+volumes:
+  pgdata:
